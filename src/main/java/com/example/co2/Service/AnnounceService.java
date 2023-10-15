@@ -1,27 +1,27 @@
 package com.example.co2.Service;
 
-import com.example.co2.Dao.MessageRepository;
-import com.example.co2.Entite.Message;
+import com.example.co2.Dao.AnnounceRepository;
+import com.example.co2.Entite.Announce;
 import com.example.co2.Entite.Userco2;
-import com.example.co2.Service.ServiceImpl.MessageServiceImpl;
+import com.example.co2.Service.ServiceImpl.AnnounceServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class MessageService implements MessageServiceImpl {
+public class AnnounceService implements AnnounceServiceImpl {
     @Autowired
-    MessageRepository messageRepository;
+    AnnounceRepository messageRepository;
     @Autowired
     UserService userService;
 
-    public Message addMessage(Message m1){
+    public Announce addMessage(Announce m1){
         Optional<Userco2> userco2=userService.getCurrentUser();
         if (userco2.isPresent()) {
-            Message m=new Message();
+            Announce m=new Announce();
             m.setUserco2(userco2.get());
-           m.setMsg(m1.getMsg());
+           m.setAnnce(m1.getAnnce());
            messageRepository.save(m1);
             return m1;
         }
@@ -30,11 +30,11 @@ public class MessageService implements MessageServiceImpl {
         }
     }
 
-    public List<Message> gettAllMessage(){
+    public List<Announce> gettAllMessage(){
       return   messageRepository.findAll();
     }
 
-    public List<Message> getMessageByUser(long id){
+    public List<Announce> getMessageByUser(long id){
         return messageRepository.findAllByUserco2Id(id);
     }
 }

@@ -1,4 +1,4 @@
 package com.example.co2.Service.ServiceImpl;
 
-public interface EmployeeServiceImpl {
+public interface AnnounceServiceImpl {
 }

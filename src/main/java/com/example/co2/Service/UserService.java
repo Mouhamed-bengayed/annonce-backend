@@ -23,7 +23,7 @@ import java.util.*;
 
 @Service
 public class
-UserService implements UserServiceImpl {
+UserService {
 
     @Autowired
     UserRepository userRepository;

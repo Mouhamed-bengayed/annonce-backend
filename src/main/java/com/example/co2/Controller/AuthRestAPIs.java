@@ -63,15 +63,11 @@ public class AuthRestAPIs {
         return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getUsername(), userDetails.getAuthorities()));
 
     }
-    @RequestMapping(value = "/signup/employee", method = RequestMethod.POST)
+    @RequestMapping(value = "/signup/user", method = RequestMethod.POST)
     public ResponseEntity<Userco2> registerUser(@Validated @RequestBody Userco2 user1) {
        return userService.registerUser(user1);
     }
 
-        @RequestMapping(value = "/signup/entreprise", method = RequestMethod.POST)
-        public ResponseEntity<Userco2> registerEntreprise(@Validated @RequestBody Userco2 user1){
-          return userService.registerEntreprise(user1);
-    }
     @RequestMapping(value = "/signupadmin", method = RequestMethod.POST)
     public ResponseEntity<Userco2> registerAdmin(@Valid @RequestBody Userco2 userco2)  {
         return userService.registerAdmin(userco2);

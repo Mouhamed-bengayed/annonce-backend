@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final String[] PUBLIC_ENDPOINTS={
 
-            "/api/auth/signup/employee",
+            "/api/auth/signup/user",
             "/api/auth/signIn",
             "/api/works/sum_carbo_works",
             "/api/Bilan/list-Bilan",

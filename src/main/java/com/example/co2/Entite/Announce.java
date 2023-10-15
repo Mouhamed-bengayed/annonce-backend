@@ -7,13 +7,14 @@ import javax.persistence.*;
 
 @Entity
 @Data
-public class Solution {
+public class Announce {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String annce;
+    private String email;
+    private String nom;
     @ManyToOne
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private Userco2 user;
-    private String description;
-    private String titre;
+    private Userco2 userco2;
 }

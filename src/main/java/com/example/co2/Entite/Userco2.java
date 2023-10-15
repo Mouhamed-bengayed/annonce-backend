@@ -23,11 +23,8 @@ public class Userco2 {
     private String token;
 
     @OneToMany(mappedBy = "userco2")
-    private List<Message> message;
-    @OneToMany(mappedBy = "user")
-    private List<Solution> solutionList;
-    @OneToMany(mappedBy = "user")
-    private List<Activity> activityList;
+    private List<Announce> announces;
+
     @OneToOne
     private Bilan bilan;
 
