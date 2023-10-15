@@ -16,7 +16,7 @@ public class AnnounceService implements AnnounceServiceImpl {
     @Autowired
     UserService userService;
 
-    public Announce addMessage(Announce m1){
+    public Announce addAnnounce(Announce m1){
         Optional<Userco2> userco2=userService.getCurrentUser();
         if (userco2.isPresent()) {
             Announce m=new Announce();
@@ -30,11 +30,11 @@ public class AnnounceService implements AnnounceServiceImpl {
         }
     }
 
-    public List<Announce> gettAllMessage(){
+    public List<Announce> gettAllAnnounce(){
       return   messageRepository.findAll();
     }
 
-    public List<Announce> getMessageByUser(long id){
+    public List<Announce> getAnnounceByUser(long id){
         return messageRepository.findAllByUserco2Id(id);
     }
 }

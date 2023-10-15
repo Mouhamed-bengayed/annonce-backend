@@ -1,5 +1,6 @@
 package com.example.co2.Controller;
 import com.example.co2.Entite.Announce;
+import com.example.co2.Entite.Bilan;
 import com.example.co2.Service.AnnounceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -20,13 +21,16 @@ public class AnnounceController {
 
     @GetMapping("/list-announce")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public List<Announce> ListUserByRoles() {
-        return announceService.gettAllMessage();
+    public List<Announce> ListAnnounce() {
+        return announceService.gettAllAnnounce();
     }
 
     @PostMapping("/add-announce")
-    public Announce addMessage(@RequestBody @Valid Announce m) {
-        return announceService.addMessage(m);
+    public Announce addAnnounce(@RequestBody @Valid Announce m) {
+        return announceService.addAnnounce(m);
     }
-
+    @GetMapping("/get-Bilan-By-User")
+    public List<Announce>  getAnounceByUser(int id){
+        return announceService.getAnnounceByUser(id);
+    }
 }
